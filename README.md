@@ -19,8 +19,13 @@ class Panda(object):
     def __init__(self,sprite,x,y):
         self.frame = 0
         self.sprite = sprite
+<<<<<<< HEAD
         self.x = x*x /////////////////////////////
         self.y = y
+=======
+        self.x = x
+        self.y = y*y
+>>>>>>> 04c2da2f7b10f41cec4d9af427362f9a38b1c99b
         self.pandaWidth = 64
         self.pandaHeight = 90
     def panda_timerFired(self):
