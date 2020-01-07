@@ -19,7 +19,7 @@ class Panda(object):
     def __init__(self,sprite,x,y):
         self.frame = 0
         self.sprite = sprite
-        self.x = x
+        self.x = x*x /////////////////////////////
         self.y = y
         self.pandaWidth = 64
         self.pandaHeight = 90
@@ -44,15 +44,15 @@ class SplashScreenMode(Mode):
 
 
     def redrawAll(mode, canvas):
-        canvas.create_image(mode.width//2,mode.height//2, 
+        canvas.create_image(mode.width//2,mode.height//2,
                             image=ImageTk.PhotoImage(mode.screenStart))
         font = 'Arial 26 bold'
         canvas.create_text(mode.width/2, 50, text='Welcome to Hungry Panda!', font=font)
-        canvas.create_text(mode.width/2, 150, 
+        canvas.create_text(mode.width/2, 150,
         text='Help the panda to win the bamboo', font=font)
-        canvas.create_text(mode.width/2, 250, 
+        canvas.create_text(mode.width/2, 250,
         text='THREE steps to win', font=font)
-        canvas.create_text(mode.width/2, 350, 
+        canvas.create_text(mode.width/2, 350,
         text='Click START to take this adventure', font=font)
         canvas.create_text(mode.width/2, 450, text='Click HELP for help!', font=font)
     def keyPressed(mode, event):
@@ -95,12 +95,12 @@ class GameModeOne(Mode):
         mode.panda.panda_redrawAll(canvas,cx,cy)
         canvas.create_rectangle(0, mode.height//3, mode.width//5, mode.height,
                                 fill='brown')
-        canvas.create_rectangle(4*mode.width//5, mode.height//3, 
+        canvas.create_rectangle(4*mode.width//5, mode.height//3,
                                 mode.width,mode.height,fill='brown')
-        canvas.create_rectangle(mode.width//5, 2*mode.height//3, 
+        canvas.create_rectangle(mode.width//5, 2*mode.height//3,
                                 4*mode.width//5,mode.height,fill='light blue')
         curX,curY = mode.cursor
-        canvas.create_image(curX,2*mode.height//3, 
+        canvas.create_image(curX,2*mode.height//3,
                             image=ImageTk.PhotoImage(mode.cursorImage))
 
 class GameModeTwo(Mode):
@@ -134,7 +134,7 @@ class GameModeTwo(Mode):
         elif (event.key == "Left"):    
             # mode.panda.sprite = mode.spritesLeft
             mode.movePanda(-5, 0)
-        elif (event.key == "Right"): 
+        elif (event.key == "Right"):
             # mode.panda.sprite = mode.spritesRight
             mode.movePanda(+5, 0)
 
@@ -155,7 +155,7 @@ class GameModeThree(Mode):
         mode.pandaX = 64 # panda's center
         mode.pandaY = mode.height//3-45 # panda's center
         mode.panda = Panda(mode.spritesRight,mode.pandaX,mode.pandaY)
-        
+
         urlClosedBox = 'https://i.loli.net/2019/11/21/gH2Q6fNZbMjeqCv.png'
         spritestripClosedBox0 = mode.loadImage(urlClosedBox)
         spritestripClosedBox = mode.scaleImage(spritestripClosedBox0, 1/10)
@@ -163,7 +163,7 @@ class GameModeThree(Mode):
         mode.bamboosCenter = [(random.randrange(mode.width//3,mode.width),
                       random.randrange(60, mode.height)) for _ in range(10)]
 
-             
+
 
     def keyPressed(mode, event):
         if (event.key == "h"):
@@ -174,7 +174,7 @@ class GameModeThree(Mode):
         cx, cy = mode.panda.x, mode.panda.y
         mode.panda.panda_redrawAll(canvas,cx,cy)
         for cx,cy in mode.bamboosCenter:
-            canvas.create_image(cx,cy, 
+            canvas.create_image(cx,cy,
                             image=ImageTk.PhotoImage(mode.bambooImage))
 
 
@@ -204,9 +204,9 @@ class GameWinMode(Mode):
 class HelpModeOne(Mode):
     def redrawAll(mode, canvas):
         font = 'Arial 26 bold'
-        canvas.create_text(mode.width/2, 150, 
+        canvas.create_text(mode.width/2, 150,
         text='To finish step1, you need to score 10', font=font)
-        canvas.create_text(mode.width/2, 250, 
+        canvas.create_text(mode.width/2, 250,
         text='Arrows to move, \nand mouse to move and click', font=font)
         canvas.create_text(mode.width/2, 350, text='Press s for superHelp', font=font)
 
@@ -216,9 +216,9 @@ class HelpModeOne(Mode):
 class HelpModeTwo(Mode):
     def redrawAll(mode, canvas):
         font = 'Arial 26 bold'
-        canvas.create_text(mode.width/2, 150, 
+        canvas.create_text(mode.width/2, 150,
         text='To finish step2, you need to score 10', font=font)
-        canvas.create_text(mode.width/2, 250, 
+        canvas.create_text(mode.width/2, 250,
         text='Arrows to move, \nand mouse to move and click', font=font)
         canvas.create_text(mode.width/2, 350, text='Press s for superHelp', font=font)
 
@@ -227,9 +227,9 @@ class HelpModeTwo(Mode):
 class HelpModeThree(Mode):
     def redrawAll(mode, canvas):
         font = 'Arial 26 bold'
-        canvas.create_text(mode.width/2, 150, 
+        canvas.create_text(mode.width/2, 150,
         text='To finish step3, you need to score 10', font=font)
-        canvas.create_text(mode.width/2, 250, 
+        canvas.create_text(mode.width/2, 250,
         text='Arrows to move, \nand mouse to move and click', font=font)
         canvas.create_text(mode.width/2, 350, text='Press s for superHelp', font=font)
 
@@ -251,5 +251,3 @@ class MyModalApp(ModalApp):
         app.timerDelay = 50
 
 app = MyModalApp(width=500, height=500)
-
-    
