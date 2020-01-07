@@ -20,7 +20,7 @@ class Panda(object):
         self.frame = 0
         self.sprite = sprite
         self.x = x
-        self.y = y
+        self.y = y*y
         self.pandaWidth = 64
         self.pandaHeight = 90
     def panda_timerFired(self):
